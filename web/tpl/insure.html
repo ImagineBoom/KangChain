@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>康链科技</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/assets/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/navbar-top-fixed.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">康链科技</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="patient.html">患者</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="drug.html">药品</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="registration.html">挂号</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="insure.html">医保  <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="请输入" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+
+<div class="left">
+    <div class="title">
+        <img class="imglogo" src="../static/img/logo.png" alt="Logo">
+        <h2 class="titletext">保险查询  </h2>
+    </div>
+    <div class="getinfo">
+        <div>
+            <form action="/queryInsureReq" method="post">
+                <label>
+                    用户id: <input type="text" name="id" placeholder="请输入待查询内容"/>
+                </label>
+                <br/><br/>
+                <label>
+                    查询结果: {{.Id}}
+                </label><br>
+                <label>
+                    {{.Date}}
+                </label><br>
+                <label>
+                    {{.Company}}
+                </label><br>
+                <label>
+                    {{.InsuranceContent}}
+                </label><br>
+                <br/><br/>
+                <input type="submit" value="提交查询"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="right">
+    <div class="title">
+        <img class="imglogo" src="../static/img/logo.png" alt="Logo">
+        <h2 class="titletext">保险存储 </h2>
+    </div>
+
+    <div class="setinfo">
+        <div class="showSetStateMsg">
+            {{if .State}}
+                {{.TransactionID}}
+            {{end}}
+        </div>
+        <div>
+            <form action="/setInsureReq" method="post">
+                <label>
+                    身份证号: <input type="text" name="id"/>
+                </label><br>
+                <label>
+                    保险公司名: <input type="text" name="company"/>
+                </label><br>
+                <label>
+                    保险单详情: <input type="text" name="insuranceContent"/>
+                </label><br>
+                <label>
+                    签订日期: <input type="text" name="date"/>
+                </label><br>
+                <br/><br/>
+                <input type="submit" value="提交存储"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

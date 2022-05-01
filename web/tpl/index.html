@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>康链科技</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/assets/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/navbar-top-fixed.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">康链科技</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="patient.html">患者</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="drug.html">药品</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="registration.html">挂号</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="insure.html">医保</a>
+            </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="请输入" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+
+<div class="left">
+    <table class="tg" style="table-layout: fixed; width: 465px">
+        <colgroup>
+            <col style="width: 156px">
+            <col style="width: 309px">
+        </colgroup>
+        <thead>
+        <tr>
+            <th class="tg-e0iw" colspan="2">智臻医疗</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="tg-cudy">网络名称</td>
+            <td class="tg-c3ow">byfn</td>
+        </tr>
+        <tr>
+            <td class="tg-cudy">排序方式</td>
+            <td class="tg-c3ow">etcdraft</td>
+        </tr>
+        <tr>
+            <td class="tg-3lqi">系统通道</td>
+            <td class="tg-9wq8">byfn-sys-channel</td>
+        </tr>
+        <tr>
+            <td class="tg-3lqi">应用通道</td>
+            <td class="tg-9wq8">mychannel</td>
+        </tr>
+        <tr>
+            <td class="tg-77c1" rowspan="5">Orderer</td>
+            <td class="tg-nrix">orderer.example.com:7050</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">orderer2.example.com:8050</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">orderer3.example.com:9050</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">orderer4.example.com:10050</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">orderer5.example.com:11050</td>
+        </tr>
+        <tr>
+            <td class="tg-77c1" rowspan="4">Org1</td>
+            <td class="tg-nrix">peer0.org1.example.com:7051</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">peer1.org1.example.com:8051</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">ca.org1.example.com:7054</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">cli</td>
+        </tr>
+        <tr>
+            <td class="tg-77c1" rowspan="3">Org2</td>
+            <td class="tg-nrix">peer0.org2.example.com:9051</td>
+        </tr>
+        <tr>
+            <td class="tg-nrix">peer1.org2.example.com:10051</td>
+        </tr>
+        <tr>
+            <td class="tg-9wq8">ca.org2.example.com:8054</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="right">
+    <div class="title">
+        <img class="imglogo" src="../static/img/logo.png" alt="Logo">
+        <h2 class="titletext">Hyperledger Fabric </h2>
+    </div>
+    <div class="getinfo">
+        <h3>数据查询</h3>
+        <div>
+            <form action="/queryReq" method="post">
+                <label>
+                    查询名称: <input type="text" name="queryKey" placeholder="请输入待查询内容"/>
+                </label>
+                <br/><br/>
+                <label>
+                    查询结果: {{.QueryData}}
+                </label>
+                <br/><br/>
+                <input type="submit" value="提交查询"/>
+            </form>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="setinfo">
+        <h3>数据存储</h3>
+        <div class="showSetStateMsg">
+            {{if .State}}
+                {{.TransactionID}}
+            {{end}}
+        </div>
+        <div>
+            <form action="/setReq" method="post">
+                <label>
+                    存储名称: <input type="text" name="storeKey"/>
+                </label>
+                <br/><br/>
+                <label>
+                    存储数据: <input type="text" name="storeValue"/><br/><br/>
+                </label>
+                <br/><br/>
+                <input type="submit" value="提交存储"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

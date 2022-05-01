@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>康链科技</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/navbar-fixed/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/assets/dist/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="../static/css/navbar-top-fixed.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">康链科技</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">首页</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="patient.html">患者</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="drug.html">药品</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="registration.html">挂号 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="insure.html">医保</a>
+            </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="请输入" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+    </div>
+</nav>
+
+<div class="left">
+    <div class="title">
+        <img class="imglogo" src="../static/img/logo.png" alt="Logo">
+        <h2 class="titletext">挂号查询  </h2>
+    </div>
+    <div class="getinfo">
+        <div>
+            <form action="/findRegisReq" method="post">
+                <label>
+                    查询挂号单号: <input type="text" name="queryId" placeholder="请输入待查询内容"/>
+                </label>
+                <br/><br/>
+                <label>
+                    查询结果:
+                </label><br>
+                <label>
+                    挂号单号：{{.Id}}
+                </label><br>
+                <label>
+                    挂号日期：{{.Date}}
+                </label><br>
+                <label>医生身份证号：{{.Doctor.Id}}</label><br>
+                <label>医生姓名：{{.Doctor.Name}}</label><br>
+                <label>科室名称：{{.Doctor.DepartmentName}}</label><br>
+                <label>科室编号：{{.Doctor.DepartmentId}}</label><br>
+                <br/><br/>
+                <input type="submit" value="提交查询"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="right">
+    <div class="title">
+        <img class="imglogo" src="../static/img/logo.png" alt="Logo">
+        <h2 class="titletext">挂号存储  </h2>
+    </div>
+    <div class="setinfo">
+        <div class="showSetStateMsg">
+            {{if .State}}
+                {{.TransactionID}}
+            {{end}}
+        </div>
+        <div>
+            <form action="/recordRegisReq" method="post">
+                <label>
+                    挂号单号: <input type="text" name="storeId"/>
+                </label>
+                <br/><br/>
+                <label>
+                    挂号日期: <input type="text" name="storeDate"/>
+                </label>
+                <br/><br/>
+                <label>
+                    医生身份证号: <input type="text" name="storeDoctorId"/>
+                </label>
+                <br/><br/>
+                <label>
+                    医生姓名: <input type="text" name="storeDoctorName"/>
+                </label>
+                <br/><br/>
+                <label>
+                    科室名称: <input type="text" name="storeDepartmentName"/>
+                </label>
+                <br/><br/>
+                <label>
+                    科室编号: <input type="text" name="storeDepartmentId"/><br/><br/>
+                </label>
+                <br/><br/>
+                <input type="submit" value="提交存储"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
